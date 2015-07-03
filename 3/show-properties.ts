@@ -1,13 +1,15 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-import * as Test from './friends-service';
+import {NameService, FriendsService} from './friends-service';
+
 @Component({
-  selector: 'display',
-  appInjector: [Test.FriendsService]
+    selector: 'display',
+    appInjector: [FriendsService, NameService]
 
 })
+
 @View({
-  template: `
+    template: `
   	<p>My name: {{ myName }}</p>
   	<p>Friends:</p>
   	<ul>
@@ -16,19 +18,17 @@ import * as Test from './friends-service';
      	</li>
   	</ul>
   `,
-  directives: [NgFor]
+    directives: [NgFor]
 })
 
 class DisplayComponent {
-  myName: string;
-  names: Array<string>;
-  
-  constructor(friendsService: Test.FriendsService) {
-     this.myName = "Alice";
-     this.names = friendsService.names;
-  }
+    myName:string;
+    names:Array<string>;
+
+    constructor(friendsService:FriendsService) {
+        this.myName = "Alice";
+        this.names = friendsService.names;
+    }
 }
-
-
 
 bootstrap(DisplayComponent);
