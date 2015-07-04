@@ -1,22 +1,25 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
-import {Component, View, bootstrap} from 'angular2/angular2';
+import {Component, View, bootstrap, Inject} from 'angular2/angular2';
+import {NameService} from '../3/friends-service';
 
 // Annotation section
 @Component({
-  selector: 'my-app2'
+    selector: 'my-app2',
+    appInjector: [NameService]
+
 })
 
 @View({
-  template: '<h1>Halo {{ name }}</h1>'
+    template: '<span><div style="display: inline;color: blue;">Halo {{ name }}!</div></span>'
 })
 
 // Component controller
 class MyAppComponent2 {
-  name: string;
-  
-  constructor() {
-    this.name = 'John';
-  }
+    name:string;
+
+    constructor(nameService:NameService) {
+        this.name = nameService.getName();
+    }
 }
 
 bootstrap(MyAppComponent2);

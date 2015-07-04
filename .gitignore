@@ -1,2 +1,6 @@
 typings/
 **/*.js
+*.iml
+.idea/*
+*.xml
+
