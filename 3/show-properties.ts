@@ -1,10 +1,10 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-import {NameService, FriendsService} from './friends-service';
+import {TokenService, NameService, FriendsService} from './friends-service';
 
 @Component({
     selector: 'display',
-    appInjector: [FriendsService, NameService]
+    appInjector: [TokenService, NameService, FriendsService]
 
 })
 

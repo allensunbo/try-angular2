@@ -1,11 +1,11 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
 import {Component, View, bootstrap, Inject} from 'angular2/angular2';
-import {NameService} from '../3/friends-service';
+import {TokenService, NameService} from '../3/friends-service';
 
 // Annotation section
 @Component({
     selector: 'my-app2',
-    appInjector: [NameService]
+    appInjector: [TokenService, NameService]
 
 })
 
